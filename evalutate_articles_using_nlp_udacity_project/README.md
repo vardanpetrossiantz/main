@@ -18,7 +18,7 @@ cd src
 mkdir client server 
 cd client
 mkdir js styles views
-type nul > Index.js
+type nul > index.js
 cd js
 type nul > formHandler.js
 type nul > urlValidator.js
