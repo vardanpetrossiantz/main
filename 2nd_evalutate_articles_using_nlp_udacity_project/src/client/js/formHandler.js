@@ -1,4 +1,9 @@
-const fetch = require('node-fetch');
+
+
+   // select the entered content
+   let userEntry = document.getElementById('name').value;
+
+
 
 // result variables
 const ironyCategory = document.getElementById('irony');
@@ -9,12 +14,10 @@ async function handleSubmit(event) {
     // clear results from previous submit
     ironyCategory.innerHTML = '';
 
-    // select the entered content
-    let userEntry = document.getElementById('name').value;
-
+ 
     // validate user entry
     if (Client.checkForUrl(userEntry)) {
-        await fetch('/article', {
+        await fetch('http://localhost:8082/meaningCloud', {
             method: 'POST',
             cache: 'no-cache',
             credentials: 'same-origin',
@@ -37,15 +40,15 @@ async function handleSubmit(event) {
 
 /* Update UI */
 const updateUI = (res) => {
+    const req = await fetch('/meaningCloud');
+    try {
+        const res = await req.json();
 
     // insert the results extracted from API
-    ironyCategory.innerHTML = `Irony: ${capitalizeFirstLetter(res.irony)}`;
-}
-
-/* Function to capitalize first letter of string */
-function capitalizeFirstLetter(string) {
-    string = string.toLowerCase();
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    ironyCategory.innerHTML = 'Irony: ' + res.irony;
+    } catch (error) {
+        console.log('UI error')
+    }
 }
 
 export { handleSubmit }
