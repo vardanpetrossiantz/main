@@ -42,7 +42,10 @@ const API_KEY = process.env.API_KEY;
 // In the get route we will send the response to 
 // the endpoint which is the index.html in dist folder
 app.get("/", function (req, res) {
-    res.sendFile("dist/index.html");
+    // res.sendFile("dist/index.html");
+    // fixing error: path must be absolute or specify root to res.sendFile
+    // https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+    res.sendFile('index.html', { root: __dirname });
 });
 
 const port = 8082;
