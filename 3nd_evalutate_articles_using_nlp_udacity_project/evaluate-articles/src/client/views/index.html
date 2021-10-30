@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Analize articles</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="main-header">
+            Article Evalutator
+        </div>
+        <div class="sub-header">
+            Here you can evaluate articles
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <form class="" onsubmit="return handleSubmit(event)">
+                <label>Add your URL here:</label>
+                <input id="name" type="text" name="input" value="" placeholder="Name">
+                <input type="submit" name="" value="SUBMIT" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+            </form>
+
+            <section>
+
+                <section>
+                    <div id="results">
+                        <strong>Final Analisys:</strong>
+                        <div><br></div>
+                        <div id="agreement"></div>
+                        <div id="confidence"></div>
+                        <div id="irony"></div>
+                        <div id="score_tag"></div>
+                        <div id="subjectivity"></div>
+                        <div id="sentence-list"></div>
+                        <div id="model"></div>
+                    </div>
+                </section>
+    </main>
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+        <script type="text/javascript" src="../../../dist/main.js"></script>
+</body>
+
+</html>
