@@ -11,7 +11,7 @@ module.exports = {
     devServer: {
         contentBase: './src/client/views',
         watchContentBase: true,
-        port: 8092
+        port: 8091
     },
     output: {
         libraryTarget: 'var',
