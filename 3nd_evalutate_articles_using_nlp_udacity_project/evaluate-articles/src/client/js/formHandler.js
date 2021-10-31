@@ -37,6 +37,7 @@ async function handleSubmit(event) {
 } else {
     // output error message
     console.log('the url is invalid');
+    alert("Enter valid url")
 };
 
 
